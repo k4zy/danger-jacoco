@@ -105,7 +105,8 @@ module Danger
     end
 
     def table_content(file_report)
-      values = [file_report.file_name.sub("#{path_prefix}/","")]
+      short_name = file_report.file_name.sub("#{path_prefix}/","")
+      values = ["`#{short_name}`"]
       filterd_coverages = file_report.coverages
       .select do |it|
         coverage_types.include?(it.type)
