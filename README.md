@@ -1,20 +1,52 @@
-# danger-jacoco
 
-A description of danger-jacoco.
 
-## Installation
+### danger-jacoco
 
-    $ gem install danger-jacoco
+Measuring and reporting Java code coverage.
+This is done using [jacoco](http://jacoco.org/jacoco/)
+Results are passed out as tables in markdown.
 
-## Usage
+<blockquote>Running jacoco with its basic configuration
+  <pre>
+jacoco.report</pre>
+</blockquote>
 
-    Methods and attributes from this plugin are available in
-    your `Dangerfile` under the `jacoco` namespace.
+<blockquote>Running jacoco with a specific gradle task or report_file
+  <pre>
+jacoco.gradle_task = "app:jacoco" #defalut: jacoco
+jacoco.report_file = "app/build/reports/jacoco/jacoco/jacoco.xml"
+jacoco.coverage_types = %w(INSTRUCTION BRANCH LINE)
+jacoco.report</pre>
+</blockquote>
 
-## Development
 
-1. Clone this repo
-2. Run `bundle install` to setup dependencies.
-3. Run `bundle exec rake spec` to run the tests.
-4. Use `bundle exec guard` to automatically have tests run as you make changes.
-5. Make your changes.
+
+#### Attributes
+
+`gradle_module` - Custom gradle module to run.
+This is useful when your project has different flavors.
+Defaults to `app`.
+
+`gradle_task` - Custom gradle task to run.
+This is useful when your project has different flavors.
+Defaults to `jacoco`.
+
+`report_file` - Location of report file
+If your jacoco task outputs to a different location, you can specify it here.
+Defaults to `build/reports/jacoco_report.xml`.
+
+`coverage_types` - Filtering coverage_types
+Defaults to `["INSTRUCTION", "BRANCH"]`.
+
+
+
+
+#### Methods
+
+`report` - Calls jacoco task of your gradle project.
+It fails if `gradlew` cannot be found inside current directory.
+It fails if `report_file` cannot be found inside current directory.
+
+
+
+
