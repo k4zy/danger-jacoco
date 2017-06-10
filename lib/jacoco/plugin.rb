@@ -11,6 +11,7 @@ module Danger
   #
   #          jacoco.gradle_task = "app:jacoco" #defalut: jacoco
   #          jacoco.report_file = "app/build/reports/jacoco/jacoco/jacoco.xml"
+  #          jacoco.coverage_types = %w(INSTRUCTION BRANCH LINE)
   #          jacoco.report
   #
   # @see  kazy1991/danger-jacoco
@@ -20,22 +21,22 @@ module Danger
 
     # Custom gradle module to run.
     # This is useful when your project has different flavors.
-    # Defaults to "app".
+    # Defaults to `app`.
     # @return [String]
     attr_writer :gradle_module
     # Custom gradle task to run.
     # This is useful when your project has different flavors.
-    # Defaults to "jacoco".
+    # Defaults to `jacoco`.
     # @return [String]
     attr_writer :gradle_task
     # Location of report file
     # If your jacoco task outputs to a different location, you can specify it here.
-    # Defaults to "build/reports/jacoco_report.xml".
+    # Defaults to `build/reports/jacoco_report.xml`.
     # @return [String]
     attr_writer :report_file
 
-    # Enable filtering coverage_type
-    # Only show messages within changed files.
+    # Filtering coverage_types
+    # Defaults to `["INSTRUCTION", "BRANCH"]`.
     attr_writer :coverage_types
 
     # Calls jacoco task of your gradle project.
