@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    danger-jacoco (0.0.1)
+    danger-jacoco (0.0.2)
       danger-plugin-api (~> 1.0)
       oga (~> 2.10)
 
@@ -12,7 +12,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     ast (2.3.0)
-    claide (1.0.1)
+    claide (1.0.2)
     claide-plugins (0.9.2)
       cork
       nap
@@ -21,7 +21,7 @@ GEM
     colored2 (3.1.2)
     cork (0.3.0)
       colored2 (~> 3.1)
-    danger (5.2.2)
+    danger (5.3.0)
       claide (~> 1.0)
       claide-plugins (>= 0.9.2)
       colored2 (~> 3.1)
